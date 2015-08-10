@@ -1,15 +1,22 @@
+#
+# Conditional build:
+%bcond_with	tests		# build without tests
+
 %define	pkgname	arr-pm
 Summary:	RPM reader and writer library
 Name:		ruby-%{pkgname}
-Version:	0.0.8
-Release:	2
+Version:	0.0.10
+Release:	1
 License:	Apache v2.0
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
-# Source0-md5:	5b5246c15f9df672832a962dcd3063be
+# Source0-md5:	6c23ba073b590440c37042a85e0786d3
 URL:		https://github.com/jordansissel/ruby-arr-pm
 BuildRequires:	rpm-rubyprov
 BuildRequires:	rpmbuild(macros) >= 1.665
+%if %{with tests}
+BuildRequires:	ruby-flores
+%endif
 Requires:	ruby-cabin
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
