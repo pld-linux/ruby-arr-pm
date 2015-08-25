@@ -6,7 +6,7 @@
 Summary:	RPM reader and writer library
 Name:		ruby-%{pkgname}
 Version:	0.0.10
-Release:	1
+Release:	2
 License:	Apache v2.0
 Group:		Development/Languages
 Source0:	http://rubygems.org/downloads/%{pkgname}-%{version}.gem
@@ -17,6 +17,7 @@ BuildRequires:	rpmbuild(macros) >= 1.665
 %if %{with tests}
 BuildRequires:	ruby-flores
 %endif
+Requires:	cpio
 Requires:	ruby-cabin
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
